@@ -1,0 +1,269 @@
+question,GT_sql,predicted_sql,execution_match
+Find the total cost of the project Theseus,SELECT T1.total_cost FROM projects AS T1 WHERE T1.title = 'Theseus',SELECT projects.total_cost FROM projects WHERE projects.title = Theseus,False
+Show total cost of project with title Theseus,SELECT T1.total_cost FROM projects AS T1 WHERE T1.title = 'Theseus',SELECT projects.total_cost FROM projects WHERE projects.title = Theseus,False
+Show me the acronyms of projects that started in 2018,SELECT acronym FROM projects WHERE start_year = 2018,"These are project titles related to various fields such as technology, biology, healthcare, and social sciences. Some examples include ""MicroPhan"" which seems to be related to micro-manufacturing or nanotechnology, ""TransparencyMeters"" related to data transparency, ""BioDermaCare"" might be about dermatological care products, and ""Re-MAPMATH"" could be a mathematical modeling tool. However, without more context, its hard to accurately describe what each project does.",False
+Get acronyms of projects beginning in 2018,SELECT acronym FROM projects WHERE start_year = 2018,"These are project titles from various research fields, mostly in the areas of science and technology. Here is a brief overview of some of them:
+
+1. ""STREAM"": This project might focus on data analysis or machine learning, given the context.
+2. ""STARGATE"": Could be related to space exploration or advanced computing.
+3. ""SOLWARIS"": Possibly solar energy research.
+4. ""DYNACQM"": Likely involves quality management in dynamics systems or dynamic systems modeling.
+5. ""COLING"": This could be a conference or workshop in the field of computational linguistics and natural language processing.
+6. ""ATTO DNA"": Deals with extremely small units of DNA, possibly sequencing or analysis at an atomic level.
+7. ""BRASILIAE"": May relate to research on the city of Brasilia or urban planning in general.
+8. ""ARTISTIC"": Likely involves art and technology.
+9. ""C-POS"": Could be a point-of-sale system or a project focusing on computer vision.
+10. ""MicroAdiPSChip"": Most likely microelectronics research, focusing on adaptive systems on a chip.
+11. ""Schizo-EPICOG"": Deals with schizophrenia and epigenetics, possibly investigating the genetic basis of the disease.
+12. ""ADAM5"": Might focus on protein ADAM5 and its role in various biological processes.
+13. ""MATHROCKS"": Likely a project or conference centered around teaching mathematics using music and rhythm.
+14. ""RRING"": May be related to ring-shaped structures, such as carbon nanotubes or DNA rings, in materials science or biology.
+15. ""VIDA"": Could be video production or analysis software, a video-based research project, or a conference in this field.",False
+Show me the titles of projects that started before 2016,SELECT title FROM projects WHERE start_year < 2016,"These are a list of titles for various research projects, ranging from fields such as physics, chemistry, biology, computer science, mathematics, and social sciences. Some examples include ""Uncovering the Mechanisms of Epigenetic Reprogramming of Pluripotent and Somatic Cell States,"" ""Neural and computational determinants of left cerebral dominance in speech and language,"" and ""Cold Carbon Catabolism of Microbial Communities underpinning a Sustainable Bioenergy and Biorefinery Economy."" The diversity of topics reflects the interdisciplinary nature of modern research.",False
+Find titles of projects which started earlier than 2016,SELECT title FROM projects WHERE start_year < 2016,"These are a list of research topics that range from biology, physics, mathematics, computer science, and engineering. Here are some examples:
+
+1. **Regulation of gene expression and cell fate by DNA (hydroxy)methylation**: This study focuses on how the chemical modification of DNA can influence the behavior of cells.
+
+2. **Neuromodulation of Oxygen Chemosensory Circuits in Caenorhabditis elegans**: Researchers are exploring the neural mechanisms that enable tiny organisms to sense oxygen levels.
+
+3. **Breaking the code of RNA sequence-structure-function relationships: New strategies and tools for modelling and engineering of RNA and RNA-protein complexes**: This research aims to understand how the structure of RNA determines its function, and how to manipulate these structures for practical applications.
+
+4. **Relevance of double strand break repair pathway choice in human disease and cancer**: Understanding the mechanisms behind DNA repair could lead to new strategies for cancer treatment.
+
+5. **Identification and characterization of primate structural variation and an assessment of intra-specific patterns of selection and copy-number variation**: This study investigates genetic variations among primates, which could provide insights into human evolution.
+
+6. **Quantum Design in Carbon Nanotubes**: Researchers are exploring the unique electronic properties of carbon nanotubes that could be exploited for quantum technologies.
+
+7. **A Novel Detection Scheme to Enable Point of Care Flow Cytometry**: This research aims to develop portable technology for analyzing cells, which could have significant implications for healthcare.
+
+8. **Finite element simulations of mechanobiology in tissue engineering**: This study uses computational models to understand how mechanical forces influence the behavior of cells in engineered tissues.
+
+9. **Polar Molecules: From Ultracold Chemistry to Novel Quantum Phases**: Researchers are studying the unusual properties exhibited by polar molecules at extremely low temperatures, which could lead to new quantum states and technologies.
+
+10. **Thermodynamics of the Climate System**: This study investigates how the laws of thermodynamics apply to Earths climate system, with implications for understanding and predicting climate change.
+
+Each of these research topics is addressing fundamental questions in their respective fields, with potential applications that could have significant societal impact.",False
+Find institutions from the region of Nordjylland,SELECT T1.institutions_name FROM institutions AS T1 JOIN eu_territorial_units AS T2 ON T1.geocode_regions_3 = T2.geocode_regions WHERE T2.description = 'Nordjylland',SELECT T1.institutions_name FROM institutions AS T1 JOIN eu_territorial_units AS T2 ON T1.geocode_regions_3 = T2.geocode_regions WHERE T2.description = Nordjylland,False
+Show the name of institutions based in Nordjylland,SELECT T1.institutions_name FROM institutions AS T1 JOIN eu_territorial_units AS T2 ON T1.geocode_regions_3 = T2.geocode_regions WHERE T2.description = 'Nordjylland',`SELECT institutions.institutions_name FROM institutions JOIN eu_territorial_units ON institutions.geocode_regions_3 = eu_territorial_units.geocode_regions WHERE eu_territorial_units.description = Nordjylland`,False
+Find the name of principal investigators in projects that started in 2014,SELECT T2.full_name FROM projects AS T1 join people as T2 on T1.principal_investigator = T2.unics_id WHERE T1.start_year = 2014,"It seems like you have provided a list of names. However, I dont see any specific question or task associated with this list. If you need assistance with something related to these names (e.g., finding commonalities, sorting them, etc.), please provide more context so I can help better!",False
+Show the full name of people being investigators in projects that began in 2014,SELECT T2.full_name FROM projects AS T1 join people as T2 on T1.principal_investigator = T2.unics_id WHERE T1.start_year = 2014,"This list appears to be a collection of names. Its not clear what context or purpose these names serve in, as no question or specific request was provided for them to answer. If you have a specific question related to these names (e.g., ""Who is the first name on this list?""), please let me know, and Id be happy to help!",False
+Find projects whose subject area is “Mathematics and Statistics”,SELECT t1.title FROM projects AS T1 join project_subject_areas as psa on T1.unics_id = psa.project join subject_areas as sa on psa.subject_area = sa.code WHERE sa.title = 'Mathematics and Statistics',`SELECT T1.acronym FROM projects AS T1 JOIN project_subject_areas AS T2 ON T1.unics_id = T2.project WHERE T2.subject_area = Mathematics and Statistics;`,False
+Show the acronym and subject area description of projects with subject area “Mathematics and Statistics”,"SELECT t1.acronym, sa.description FROM projects AS T1 join project_subject_areas as psa on T1.unics_id = psa.project join subject_areas as sa on psa.subject_area = sa.code WHERE sa.title = 'Mathematics and Statistics'",[LLM ERROR],False
+Find all different topics of projects that ended in 2014,SELECT distinct t.title FROM projects AS T1 join project_topics as pt on T1.unics_id = pt.project join topics as t on pt.topic = t.code where t1.end_year = 2014,"The list provided seems to contain various project acronyms related to different areas such as Science, Technology, Energy, Health, Social Sciences, and others which are likely associated with grants or research programs from institutions like the European Unions Framework Programme for Research and Innovation (FP7) or Horizon 2020.
+
+Here is a brief summary of some of the project acronyms:
+
+1. FP7-ICT - European Commissions Seventh Framework Programme Information and Communication Technologies (ICT) program.
+2. H2020-SEC - Horizon 2020 Secure Societies - Protecting Freedom and Security of Europe and its Citizens
+3. ERA-NET - Joint Transnational Calls under the European Research Area Network
+4. SST (Space, Security and Transport) - European Commissions DG GROW Directorate-General for Internal Market, Industry, Entrepreneurship and SMEs
+5. AAT - Advanced Applications and Technologies sub-programme of FP7 or H2020, focusing on applied research in Information and Communication Technologies (ICT)
+6. ENERGY - European Unions Horizon 2020 programme for energy research and innovation
+7. HEALTH - European Commissions Health program under Horizon 2020
+8. SSH - Social Sciences and Humanities program under Horizon 2020
+9. DRIVE - Drive for Research, Innovation, Creativity, and Excellence, an EU-funded research program focusing on sustainable mobility and intelligent transport systems (ITS)
+10. ERC - European Research Council, which supports advanced research in any field of science and scholarship, to explore new and creative ideas, or consolidate pioneering work in a given area.
+
+These projects are funded by the EU and other institutions to advance research and innovation in various areas with the aim of fostering technological development, improving societal challenges, and driving economic growth.",False
+Find distinct titles of topics of projects that with end year 2014,SELECT distinct t.title FROM projects AS T1 join project_topics as pt on T1.unics_id = pt.project join topics as t on pt.topic = t.code where t1.end_year = 2014,[LLM ERROR],False
+Show the acronym of projects with a member from Greece,Select p.acronym from projects as p join project_members as pm on p.unics_id = pm.project join institutions as i on pm.institution_id = i.unics_id join countries as c on i.country_id = c.unics_id where c.country_name = 'Greece',[LLM ERROR],False
+Show names of institutions from France or Germany,Select i.institutions_name from institutions as i join countries as c on i.country_id = c.unics_id where c.country_name = 'France' or c.country_name = 'Germany',[LLM ERROR],False
+Show names of institutions which are not from France,Select i.institutions_name from institutions as i join countries as c on i.country_id = c.unics_id where c.country_name != 'France',"This list includes various organizations from around the world that operate in different sectors such as technology, healthcare, education, and more. Here are a few examples:
+
+1. Volvo Bus Corporation: A Swedish company specializing in bus manufacturing.
+2. Yale University: An Ivy League research university located in New Haven, Connecticut, USA.
+3. Oxford University: One of the oldest universities in Europe, based in Oxford, England.
+4. The National Cancer Institute: Part of the U.S. National Institutes of Health, focused on cancer research and treatment.
+5. British Broadcasting Corporation (BBC): A public service broadcaster and the worlds oldest national broadcasting organization.
+6. Infineon Technologies Romania and Co.: A subsidiary of German semiconductor manufacturer Infineon Technologies, based in Romania.
+7. Esbjerg Kommune: The local government of the city of Esbjerg, Denmark.
+8. Mali-Folkecenter Nyetaa: A non-governmental organization (NGO) working on sustainable development and human rights issues in Mali.
+9. Cemtec Fonden: A Danish foundation supporting research and innovation projects focused on environmental challenges.
+10. HelpAge International UK: An international NGO that advocates for the rights and needs of older people worldwide.",False
+Count the projects that started in 2016,Select count(p.unics_id) from projects as p where start_year = 2016,SELECT COUNT(*) FROM projects WHERE start_year = 2016,True
+Show the title of the project with the highest total cost,Select p.title from projects as p where total_cost = (select max(p2.total_cost) from projects as p2),SELECT projects.title FROM projects ORDER BY projects.total_cost DESC LIMIT 1;,True
+Show the name of members in projects costing less than the average project cost.,SELECT T1.member_name FROM project_members AS T1 JOIN projects AS T2 ON T1.project = T2.unics_id WHERE T2.total_cost < (SELECT AVG(T23.total_cost) FROM projects AS T23),"The list provided appears to contain the names of various organizations, companies, institutions, and agencies from several countries. Heres a brief overview:
+
+1. Various universities, colleges, and research institutes such as the University of Cambridge, University of Oxford, Ludwig-Maximilian University of Munich, Karolinska Institute, University College London, etc. These are educational institutions located in different countries.
+
+2. Some European organizations like the European Space Agency (ESA), European Molecular Biology Laboratory (EMBL), and European Commissions Joint Research Centre (JRC).
+
+3. Companies from various sectors including technology, manufacturing, energy, healthcare, and transportation such as Air Products PLC, Siemens AG, Bosch Group, ABB Ltd., SAP SE, and Rolls-Royce Holdings plc.
+
+4. Government bodies like the UKs Medicines and Healthcare products Regulatory Agency (MHRA) and the National Suicide Research Foundation (NSRF) in Ireland.
+
+5. Non-profit organizations such as Business in the Community and Searchbox SA.
+
+6. Regional authorities, for example, Comune di Venezia (Italy).
+
+7. There are also research centers like the German Aerospace Center (DLR), Karlsruhe Institute of Technology (KIT), and 52°North Initiative for Geospatial Open Source Software GmbH (Germany).
+
+8. Lastly, there are some geographically defined entities like the Dubrovacko-Neretvanska Zupanija (Croatia) and the Hrvatska Gorska Sluzba Spasavanja (Croatian Mountain Rescue Service).",False
+Find the id of projects with at least 100 members,select p.unics_id from projects as p join project_members as pm on p.unics_id = pm.project group by p.unics_id having count(p.unics_id) >= 100,[LLM ERROR],False
+Find the code and title of the funding scheme which funded the highest number of projects.,"select s.code, s.title from funding_schemes as s where s.code = (select s2.code from funding_schemes as s2 join projects as p on s2.code = p.ec_fund_scheme group by s2.code order by count(*) desc LIMIT 1)","SELECT funding_schemes.code, funding_schemes.title FROM projects JOIN funding_schemes ON projects.ec_fund_scheme = funding_schemes.code GROUP BY funding_schemes.code, funding_schemes.title ORDER BY COUNT(*) DESC LIMIT 1;",True
+Show the total costs of all projects,SELECT sum(total_cost) FROM projects,SELECT SUM(total_cost) FROM projects;,True
+Show me the title of projects which have an end year and a start year after 2006,select title from projects where start_year > 2006 and end_year > 2006,"Here are some research topics covered in the list you provided:
+1. Neuroscience (e.g., neuronal dynamics, brain development, neural and computational determinants of left cerebral dominance)
+2. Molecular biology (e.g., gene expression, cell fate, protein-protein interactions, RNA structure-function relationships)
+3. Computational biology (e.g., population transcriptional genomics in humans, molecular changes in drug addiction)
+4. Materials science (e.g., nanomaterials design, quantum sensors, carbon nanotubes and graphene)
+5. Physics (e.g., spin dynamics, quantum Hamiltonian complexity, hot and dense QCD)
+6. Mathematics (e.g., group theory, model theory, quantum information theory)
+7. Chemistry (e.g., cold carbon catabolism of microbial communities, synthetic metabolic pathways for carbon fixation)
+8. Social sciences (e.g., migration, disaster management, culture, gambling)
+9. Economics (e.g., macroeconomic dynamics with heterogeneous agents)
+10. History and archaeology (e.g., imperial government in medieval Western Islam, agricultural resilience in eastern Africa)",False
+Find the projects which lasted the longest and have an end year and a start year,"select title, end_year - start_year from projects order by end_year - start_year desc limit 1",[LLM ERROR],False
+Show me topic titles which starts with 'Raw materials',select title from topics where title like 'Raw materials%',SELECT topics.title FROM topics WHERE topics.code LIKE Raw%,False
+Show me topic titles which contain the word 'climate',select title from topics where title like '%climate%',SELECT titles.title FROM topics WHERE titles.title LIKE %climate%;,False
+Show me the number of projects where Thomas Bell was principal investigator,select count(*) from projects as p join people as peep on p.principal_investigator = peep.unics_id where peep.full_name = 'Thomas Bell',SELECT COUNT(*) FROM projects WHERE principal_investigator = (SELECT unics_id FROM people WHERE full_name = Thomas Bell),False
+Show me the all different names of people,select distinct full_name from people,"These are the names of various researchers and scientists, many of whom are known for their work in fields such as neuroscience, genetics, psychology, computer science, mathematics, physics, and more. This list includes individuals like Daniel Kahneman, Noam Chomsky, Stephen Hawking, Jürgen Schmidhuber, and Yann LeCun - all of whom are highly influential figures in their respective fields.",False
+Find the acronym of projects which have total costs between 100000 and 200000,select p.acronym from projects as p where p.total_cost between 100000 and 200000,"These are a list of titles for various research projects, innovations, and scientific studies. Heres a brief description for some of them:
+
+1. ""You are here"": This seems to be the title of a project or exhibit that uses technology or art to help people navigate and understand their surroundings.
+
+2. ""A Life in SOFCs"": This is likely a research project studying Solid Oxide Fuel Cells (SOFCs), which are used for power generation and other applications.
+
+3. ""From Bench to Bedside"": This could be the title of a study or report that documents the process of taking a new medical treatment from laboratory development to clinical use in hospitals.
+
+4. ""Food-PPP-NAFLD"": This appears to be a research project studying the relationship between dietary patterns, polycystic ovary syndrome (PCOS), and nonalcoholic fatty liver disease (NAFLD).
+
+5. ""AutoCode"": This could be a software tool or method for automating the coding process in computer programming.
+
+6. ""Food Futures"": This seems to be a project or initiative focused on the future of food production, distribution, and consumption.
+
+7. ""Flowerfields"": This could be a title of an art installation, garden, or virtual reality experience featuring fields of flowers.
+
+8. ""BrightEMIL"": This is likely a research project involving ElectroMagnetic Induction (EMIL) and its applications in technology or engineering.
+
+9. ""Whitelight"": This could be the title of a study or experiment focused on white light and its properties, or an innovative lighting product designed to mimic natural daylight.
+
+10. ""FlexSR"": This seems to be a project related to flexible sensors and their applications in robotics, wearable technology, or biomedical devices.
+
+11. ""GLAMMAP"": This could be the title of a research study involving magnetic particles (magmap) used for imaging or targeted drug delivery in medical imaging or therapy.
+
+12. ""BioXCAT"": This seems to be a project or experiment using catabolism (breakdown of complex molecules to produce energy) in biological systems for energy production or other purposes.
+
+13. ""SCAFFOLUBE"": This could be the title of a study or project developing new materials for use as scaffolds in tissue engineering and regenerative medicine.
+
+14. ""Anti-CSC"": This likely refers to research on cancer stem cells (CSCs) and the development of therapies aimed at targeting these cells to prevent tumor growth and recurrence.",False
+Show the title of projects with costs higher than 1000000,select p.title from projects as p where p.total_cost > 1000000,"These are a diverse set of research topics, spanning across various fields such as physics, biology, computer science, materials science, and engineering. Heres a brief overview of some of the themes:
+
+1. Physics: Quantum Hamiltonian Complexity, Theoretical Foundations and Observational Tests of Inflationary Cosmology, Hot and dense QCD in the LHC era, Structure and Bonding at Oxide-Liquid Interfaces, Physics of the Solar Chromosphere, Hot and Dense Carbon Catabolism of Microbial Communities underpinning a Sustainable Bioenergy and Biorefinery Economy
+
+2. Biology: How brain development underlies advances in cognition and emotion in childhood and adolescence, Neuromodulation of Oxygen Chemosensory Circuits in Caenorhabditis elegans, Molecular Studies of Astrocyte Function in Health and Disease, Uncovering the Mechanisms of Epigenetic Reprogramming of Pluripotent and Somatic Cell States, Dissection of molecular signature transformation during the process of pluripotency induction, Population transcriptional genomics in humans using high throughput sequencing
+
+3. Computer Science: Neural coding, specification, design and test of message passing neural machines, Quantitative Analysis of Textual Data for Social Sciences, Communication and Computation - Two Sides of One Tapestry, Simplifying Development and Deployment of High-Performance, Reliable Distributed Systems
+
+4. Engineering: NanoElectroMechanical Systems based on Carbon Nanotube and Graphene, Tunable array of magnetic nano-crystals designed at the atomic scale, Finite element simulations of mechanobiology in tissue engineering, High performance and ultralight carbon nanotube wires for power transmission
+
+5. Multidisciplinary: Breaking the code of RNA sequence-structure-function relationships: New strategies and tools for modelling and engineering of RNA and RNA-protein complexes (combines biology, computer science, and materials science), TARGETING TUMOUR ASSOCIATED MACROPHAGES IN CANCER (combines biology, medicine, and engineering)
+
+Each of these topics represents a significant research challenge, with the potential to yield valuable insights and technological breakthroughs in their respective fields.",False
+Show the title of projects with costs higher than a million,select p.title from projects as p where p.total_cost > 1000000,"These are a diverse set of research topics from various fields, including physics, chemistry, biology, computer science, and social sciences. Heres a brief overview:
+
+1. Physics: Quantum Hamiltonian Complexity, Hot and dense QCD in the LHC era, Theoretical Foundations and Observational Tests of Inflationary Cosmology, Cold Carbon Catabolism of Microbial Communities underpinning a Sustainable Bioenergy and Biorefinery Economy, Simulation, Optimization and Control of High-Altitude Wind Power Generators.
+
+2. Chemistry: Synthetic metabolic pathways for carbon fixation, Dissection of molecular signature transformation during the process of pluripotency induction, Breaking the code of RNA sequence-structure-function relationships, Stomatocyte Nanomotors: Programmed Supramolecular Architectures for Autonomous Movement, Structure and Dynamics of Porphyrin-Based Materials in Solution vs. Interfaces, Tunable array of magnetic nano-crystals designed at the atomic scale, Ultra-fast control of THz plasmon polariton resonances.
+
+3. Biology: How brain development underlies advances in cognition and emotion in childhood and adolescence, Neural and computational determinants of left cerebral dominance in speech and language, Detection and interpretation of de novo mutations and structural genomic variations in mental retardation, Molecular Studies of Astrocyte Function in Health and Disease, Uncovering the Mechanisms of Epigenetic Reprogramming of Pluripotent and Somatic Cell States, Neuromodulation of Oxygen Chemosensory Circuits in Caenorhabditis elegans.
+
+4. Computer Science: High performance and ultralight carbon nanotube wires for power transmission, Directed Evolution of Function within Chemical Systems: Adaptive Capsules and Polymers, Computing Biomaterials, A Novel Detection Scheme to Enable Point of Care Flow Cytometry, Simplifying Development and Deployment of High-Performance, Reliable Distributed Systems.
+
+5. Social Sciences: Families of migrant origin: a life course perspective, Gambling in Europe, Communication and Computation - Two Sides of One Tapestry.
+
+6. Archaeology and History: Consolidating Empire: Reconstructing Hegemonic Practices of the Middle Assyrian Empire at the Late Bronze Age Fortified Estate of Tell Sabi Abyad, Syria, ca. 1230 – 1280 BC, Imperial Government and Authority in Medieval Western Islam.
+
+7. Psychology: From implicit timing in the brain to explicit time abstraction in the mind, Neural coding, specification, design and test of message passing neural machines, How brain development underlies advances in cognition and emotion in childhood and adolescence, Neural and computational determinants of left cerebral dominance in speech and language.
+
+8. Other: Charge radius experiment with muonic atoms, Optimal Imaging with Present and Future Coherent X-ray Sources, The interplay between agglomeration and coating of nanoparticles in the gas phase, Ultra-fast control of THz plasmon polariton resonances.",False
+Show the project title and member name where the member has a partner role ,"select title, member_name from projects as p join project_members as pm on p.unics_id = pm.project join project_member_roles as pmr on pm.member_role = pmr.code where pmr.code = 'partner'","The list you provided appears to be a collection of research projects, training programs, and partnerships in various fields such as engineering, biology, physics, climate science, health, social sciences, and more. Each entry includes the name of the project or program, and in some cases, the affiliated institutions or companies involved. Here are a few examples:
+
+1. CATALYST (Computational Spectroscopy IN Natural sciences and Engineering) - This seems to be a training network for computational spectroscopy involving several institutions including DELL S.P.A.
+2. Breaking Bad Biofilms. Innovative Analysis and Design Rules for Next-Generation Antifouling Interfaces - This project involves several companies and organizations, such as THERADEP LIMITED and LABOR DR. MERK & KOLLEGEN GMBH.
+3. The European Landscape Learning Initiative: Past and Future Environments and Energy Regimes shaping Policy Tools - This seems to be a collaborative project involving multiple universities and organizations, such as UNIVERSITATEA STEFAN CEL MARE DIN SUCEAVA and WILD BUSINESS LTD.
+4. Management of Climatic Extreme Events in Lakes Reservoirs for the Protection of Ecosystem Services - This project involves several institutions, including DUBLIN CITY UNIVERSITY and Free university of Berlin.
+5. MUltiscale, Multimodal and Multidimensional imaging for EngineeRING - This seems to be a project involving LM WIND POWER AS and CENTRE NATIONAL DETUDES SPATIALES - CNES.",False
+What different research domains do exist?,select distinct description from erc_research_domains,SELECT DISTINCT erc_research_domains.code FROM erc_research_domains;,False
+Show me the country name of all institutes.,select c.country_name from countries as c join institutions as i on c.unics_id = i.country_id,[LLM ERROR],False
+Show me the country of all institutes.,select c.country_name from countries as c join institutions as i on c.unics_id = i.country_id,[LLM ERROR],False
+What is the country code 2 and country code 3 for Andorra?,"select country_code2, country_code3 from countries where country_name = 'Andorra'","SELECT countries.country_code2, countries.country_code3 FROM countries WHERE countries.country_name = Andorra",False
+Find the code of the funding scheme for Framework Partnership Agreement,select code from funding_schemes where title = 'Framework Partnership Agreement',SELECT funding_schemes.code FROM funding_schemes WHERE title = Framework Partnership Agreement,False
+Show me the full title of the program which is called 'Transport' in short.,select title from programmes where short_name = 'Transport',[LLM ERROR],False
+Find member name and role code of project members in project with acronym GTBB,"select pm.member_name, pr.code from project_members as pm join projects as p on pm.project = p.unics_id join project_member_roles as pr on pm.member_role = pr.code where p.acronym = 'GTBB'",[LLM ERROR],False
+Find member name and role code of project members in project GTBB,"select pm.member_name, pr.code from project_members as pm join projects as p on pm.project = p.unics_id join project_member_roles as pr on pm.member_role = pr.code where p.acronym = 'GTBB'",[LLM ERROR],False
+Show titles of programmes which have FP7 as parent program,select title from programmes where parent = 'FP7',SELECT title FROM programmes WHERE parent = FP7,False
+Show titles of programmes which have program with code FP7 as parent program,select title from programmes where parent = 'FP7',SELECT title FROM programmes WHERE parent = FP7,False
+Get panel descriptions from research domain Life Sciences,select p.description from erc_panels as p join erc_research_domains as erd on p.part_of = erd.code where erd.description = 'Life Sciences',"SELECT erc_research_domains.description as research_domain, erc_panels.description as panel_description
+FROM erc_research_domains
+JOIN erc_panels ON erc_research_domains.code = erc_panels.part_of
+WHERE erc_research_domains.code = LS;",False
+Get panel descriptions from research domain life sciences,select p.description from erc_panels as p join erc_research_domains as erd on p.part_of = erd.code where erd.description = 'Life Sciences',[LLM ERROR],False
+Find project members of type Research Organisations,select member_name from project_members as mb join activity_types as a on a.code = mb.activity_type where a.description = 'Research Organisations',[LLM ERROR],False
+Get names of project members who's activity type description is Research Organisations,select member_name from project_members as mb join activity_types as a on a.code = mb.activity_type where a.description = 'Research Organisations',SELECT member_name FROM project_members WHERE activity_type = Research Organisations,False
+What is the objective of DEEPCARBON?,select objective from projects where acronym = 'DEEPCARBON',SELECT projects.objective FROM projects WHERE projects.acronym = DEEPCARBON,False
+What is the objective of the project with acronym DEEPCARBON?,select objective from projects where acronym = 'DEEPCARBON',SELECT projects.objective FROM projects WHERE projects.acronym = DEEPCARBON,False
+Get the title of projects having the term 'carbon capturing' in it's objective.,select title from projects where objective like '%carbon capturing%',SELECT projects.title FROM projects WHERE lower(projects.objective) LIKE %carbon capturing%,False
+How many projects have an objective which contains 'carbon capturing'?,select count(*) from projects where objective like '%carbon capturing%',`SELECT COUNT(*) FROM projects WHERE objective LIKE %carbon capturing%;`,False
+Show all names of institutions from France except institutions from the territorial region of Paris,select i.institutions_name from institutions as i join countries as c on c.unics_id = i.country_id where country_name = 'France' except select i.institutions_name from institutions as i join countries as c on c.unics_id = i.country_id join eu_territorial_units as etu on i.geocode_regions_3 = etu.geocode_regions where country_name = 'France' and etu.description = 'Paris',"SELECT * FROM cities WHERE country = France AND city NOT IN (Paris, Marseille, Lyon, Toulouse, Nantes);",False
+Show institutions from France except the ones from Paris,select i.institutions_name from institutions as i join countries as c on c.unics_id = i.country_id where country_name = 'France' except select i.institutions_name from institutions as i join countries as c on c.unics_id = i.country_id join eu_territorial_units as etu on i.geocode_regions_3 = etu.geocode_regions where country_name = 'France' and etu.description = 'Paris',[LLM ERROR],False
+Which institutions have never been project coordinators,SELECT distinct member_name from project_members WHERE member_name NOT in (SELECT member_name from project_members where member_role = 'coordinator'),[LLM ERROR],False
+Show all of the instituions that have never coordinated a project,SELECT distinct member_name from project_members WHERE member_name NOT in (SELECT member_name from project_members where member_role = 'coordinator'),"The list provided appears to be a collection of various organizations, companies, institutions, and initiatives across different fields such as technology, healthcare, education, environmental science, and more. Some examples include ""Volvo Bus Corporation"", ""University of Bamako"", ""Post och Telestyrelsen"", ""New Gluten World S.R.L."", and ""The Christie NHS Foundation Trust"". The list does not seem to follow a specific pattern or structure, suggesting it could be a list of entities relevant to a certain context or topic. However, without additional context, its difficult to determine the purpose or commonality of these entries.",False
+Show all of the names of people who have worked on multiple projects,"SELECT t1.full_name, count(p.title) FROM people as t1 join projects as p on t1.unics_id = p.principal_investigator group by t1.full_name HAVING count(p.title) > 1",[LLM ERROR],False
+Which people have worked on more than one project,"SELECT t1.full_name, count(p.title) FROM people as t1 join projects as p on t1.unics_id = p.principal_investigator group by t1.full_name HAVING count(p.title) > 1",SELECT DISTINCT T1.unics_id FROM project_members AS T1 JOIN project_members AS T2 ON T1.project = T2.project WHERE T1.project <> T2.project,False
+What is the title of the subject area that has been granted the most funding,"SELECT t1.title, MAX(t3.ec_max_contribution) from subject_areas as t1 join project_subject_areas as t2 on t1.code = t2.subject_area join projects as t3 on t2.project = t3.unics_id  group by t1.title order by  MAX(t3.ec_max_contribution) DESC LIMIT 1",[LLM ERROR],False
+Which subject area has recieved the highest funding contribution?,"SELECT t1.title, MAX(t3.ec_max_contribution) from subject_areas as t1 join project_subject_areas as t2 on t1.code = t2.subject_area join projects as t3 on t2.project = t3.unics_id  group by t1.title order by  MAX(t3.ec_max_contribution) DESC LIMIT 1",[LLM ERROR],False
+Which subject area has recieved the least funding contribution,"SELECT t1.title, MIN(t3.ec_max_contribution) from subject_areas as t1 join project_subject_areas as t2 on t1.code = t2.subject_area join projects as t3 on t2.project = t3.unics_id  group by t1.title order by  MIN(t3.ec_max_contribution) DESC LIMIT 1",[LLM ERROR],False
+What is the title of the subject area that has been granted the least amount of funding,"SELECT t1.title, MIN(t3.ec_max_contribution) from subject_areas as t1 join project_subject_areas as t2 on t1.code = t2.subject_area join projects as t3 on t2.project = t3.unics_id  group by t1.title order by  MIN(t3.ec_max_contribution) DESC LIMIT 1",[LLM ERROR],False
+Which institution has participated in the most projects,"Select i.institutions_name, Count(distinct project) From project_members join institutions as i on project_members.institution_id = i.unics_id GROUP BY i.institutions_name order by count(distinct project) desc limit 1","SELECT institutions.institutions_name, COUNT(projects.unics_id) AS number_of_participation FROM projects JOIN institutions ON projects.principal_investigator = institutions.unics_id GROUP BY institutions.institutions_name ORDER BY number_of_participation DESC LIMIT 1;",False
+Show the institution that has been involved in the highest number of projects,"Select i.institutions_name, Count(distinct project) From project_members join institutions as i on project_members.institution_id = i.unics_id GROUP BY i.institutions_name order by count(distinct project) desc limit 1",SELECT institutions.institutions_name FROM institutions JOIN project_members ON institutions.unics_id = project_members.institution_id GROUP BY institutions.institutions_name ORDER BY COUNT(*) DESC LIMIT 1;,False
+Which institution has participated in the fewest projects,"Select t2.institutions_name, Count(distinct project) From project_members as t1 join institutions as t2 on t1.institution_id = t2.unics_id GROUP BY t2.institutions_name order by count(distinct project) asc limit 1","SELECT MIN(COUNT(*)) as min_count, institutions.institutions_name
+FROM institutions
+LEFT JOIN project_members ON institutions.unics_id = project_members.institution_id
+GROUP BY institutions.institutions_name
+ORDER BY COUNT(*) ASC;",False
+Show the institution that has been involved in the least amount of projects,"Select t2.institutions_name, Count(distinct project) From project_members as t1 join institutions as t2 on t1.institution_id = t2.unics_id GROUP BY t2.institutions_name order by count(distinct project) asc limit 1",[LLM ERROR],False
+Which funding scheme provided the most funding,"SELECT t1.title, sum(ec_max_contribution) from funding_schemes as t1 join projects as t2 on t1.code = t2.ec_fund_scheme group by t1.title ORDER BY sum(ec_max_contribution) DESC LIMIT 1","SELECT funding_schemes.title AS funding_scheme, COUNT(projects.total_cost) AS number_of_funded_projects
+FROM projects
+JOIN funding_schemes ON projects.ec_fund_scheme = funding_schemes.code
+GROUP BY funding_schemes.title
+ORDER BY number_of_funded_projects DESC
+LIMIT 1;",False
+Which funding scheme provided the least funding,"SELECT t1.title, sum(ec_max_contribution) from funding_schemes as t1 join projects as t2 on t1.code = t2.ec_fund_scheme group by t1.title ORDER BY sum(ec_max_contribution) ASC LIMIT 1",SELECT MIN(funding_schemes.title) FROM funding_schemes;,False
+Show the industrial partners that have worked on projects and the amount of funding they have recieved in order from most to least,"SELECT t1.member_name, p.ec_max_contribution FROM project_members as t1 join activity_types as t2 on t1.activity_type = t2.code join projects as p on t1.project = p.unics_id WHERE t2.code = 'PRC' ORDER BY ec_max_contribution DESC","SELECT member_short_name as Partner, SUM(ec_contribution) as Funding
+FROM project_members
+WHERE member_role = Industrial
+GROUP BY partner
+ORDER BY SUM(ec_contribution) DESC;",False
+Show the amount of funding and corresponding list of industrial partners that have worked on projects in order from the most funding to the least funding,"SELECT t1.member_name, p.ec_max_contribution FROM project_members as t1 join activity_types as t2 on t1.activity_type = t2.code join projects as p on t1.project = p.unics_id WHERE t2.code = 'PRC' ORDER BY ec_max_contribution DESC",[LLM ERROR],False
+Show the title and the start year of the most recent projects,"SELECT p.title, p.start_year from projects as p order by start_year DESC","SELECT title, start_year FROM projects ORDER BY start_year DESC LIMIT 1;",False
+Which projects have started most recently?,"SELECT p.title, p.start_year from projects as p order by start_year DESC",SELECT projects.title FROM projects ORDER BY start_year DESC LIMIT 1;,False
+Show title and the starting year of the least recent projects,"SELECT p.title, p.start_year from projects as p order by start_year ASC","SELECT title, start_year FROM projects ORDER BY start_year ASC LIMIT 1;",False
+Which projects have started the least recently?,"SELECT p.title, p.start_year from projects as p order by start_year ASC",SELECT T1.* FROM projects AS T1 ORDER BY T1.start_year ASC LIMIT 1;,False
+What is the starting date of the first recorded project,SELECT p.start_date from projects as p order by start_date ASC,`SELECT MIN(projects.start_date) FROM projects;`,False
+On which date did the first project start?,SELECT p.start_date from projects as p order by start_date ASC,SELECT MIN(projects.start_date) FROM projects;,False
+Show the titles of all of the projects in the subject area of Climate change and Carbon cycle research,SELECT t3.title from subject_areas as t1 join project_subject_areas as t2 on t1.code = t2.subject_area join projects as t3 on t2.project = t3.unics_id WHERE t1.title = 'Climate change and Carbon cycle research',SELECT T1.title FROM projects AS T1 JOIN project_subject_areas AS T2 ON T1.unics_id = T2.project WHERE T2.subject_area = Climate change and Carbon cycle research;,False
+Show the titles of all of the projects that share the subject area code 'CCC,SELECT t3.title from subject_areas as t1 join project_subject_areas as t2 on t1.code = t2.subject_area join projects as t3 on t2.project = t3.unics_id WHERE t1.title = 'Climate change and Carbon cycle research',SELECT T1.title FROM projects AS T1 JOIN project_subject_areas AS T2 ON T1.unics_id = T2.project WHERE T2.subject_area = CCC,False
+List all of the possible roles that project members can have in projects,SELECT pmr.description from project_member_roles as pmr,[LLM ERROR],False
+What are all of the ways that projects members can participate in projects?,SELECT pmr.description from project_member_roles as pmr,SELECT DISTINCT project_member_roles.code FROM project_member_roles;,False
+How many erc panels are dedicated to Life Sciences,SELECT count(t1.description) from erc_panels as t1 join erc_research_domains as t2 on t2.code = t1.part_of WHERE t2.description = 'Life Sciences',SELECT COUNT(*) FROM erc_panels WHERE description LIKE %Life Sciences%;,False
+Count the number of erc panels that are part of Life Sciences,SELECT count(t1.description) from erc_panels as t1 join erc_research_domains as t2 on t2.code = t1.part_of WHERE t2.code = 'LS',SELECT COUNT(*) FROM erc_panels WHERE part_of = Life Sciences,False
+List all of the european research council panels related to social sciences and humanities,SELECT t1.description from erc_panels as t1 join erc_research_domains as t2 on t2.code = t1.part_of WHERE t2.code = 'SH',SELECT T1.code FROM erc_panels AS T1 WHERE T1.part_of = Social sciences and humanities,False
+How many european research council panels are related to social sciences and humanities,SELECT count(t1.description) from erc_panels as t1 join erc_research_domains as t2 on t2.code = t1.part_of WHERE t2.code = 'SH',SELECT COUNT(*) FROM erc_panels WHERE erc_panels.part_of = Social Sciences and Humanities,False
+Show all of the project members that are private for profit entities,SELECT member_name FROM project_members as t1 join activity_types as t2 on t1.activity_type = t2.code WHERE t2.code = 'PRC',[LLM ERROR],False
+Which project members are businesses?,SELECT member_name FROM project_members as t1 join activity_types as t2 on t1.activity_type = t2.code WHERE t2.code = 'PRC',"SELECT T1.member_name, T1.activity_type FROM project_members AS T1 WHERE T1.activity_type = Business;",False
+How many project members are businesses?,SELECT count(member_name) FROM project_members as t1 join activity_types as t2 on t1.activity_type = t2.code WHERE t2.code = 'PRC',SELECT COUNT(*) FROM project_members WHERE member_role = business,False
+How many project members are Higher or Secondary Education Establishments?,SELECT count (distinct member_name) FROM project_members as t1 join activity_types as t2 on t1.activity_type = t2.code WHERE t2.code = 'HES',`SELECT COUNT(*) FROM project_members WHERE member_short_name LIKE %Education Establishment%;`,False
+Count the number of project members that are Educational Establishments,SELECT count (distinct member_name) FROM project_members as t1 join activity_types as t2 on t1.activity_type = t2.code WHERE t2.description = 'Higher or Secondary Education Establishments',SELECT COUNT(*) FROM project_members WHERE member_short_name LIKE %Educational Establishment%,False
+How many projects have been related to Robotics?,SELECT count(t3.title) from subject_areas as t1 join project_subject_areas as t2 on t1.code = t2.subject_area join projects as t3 on t2.project = t3.unics_id WHERE t1.title = 'Robotics',SELECT COUNT(*) FROM projects WHERE title LIKE %Robotics%,False
+What is the number of projects that have been carried out in the subject area of Robotics?,SELECT count(t3.title) from subject_areas as t1 join project_subject_areas as t2 on t1.code = t2.subject_area join projects as t3 on t2.project = t3.unics_id WHERE t1.title = 'Robotics',SELECT COUNT(T1.unics_id) FROM projects AS T1 JOIN project_subject_areas AS T2 ON T1.unics_id = T2.project WHERE T2.subject_area = Robotics;,False
+Which non-EU entity has recieved the most funding through a project?,"SELECT t1.member_name, p.ec_max_contribution FROM project_members as t1 join activity_types as t2 on t1.activity_type = t2.code join projects as p on t1.project = p.unics_id WHERE t1.geocode_regions_3 = 'NONEU' ORDER BY ec_max_contribution DESC LIMIT 1",[LLM ERROR],False
+Which entity located outside of the EU has received the most funding?,"SELECT t1.member_name, p.ec_max_contribution FROM project_members as t1 join activity_types as t2 on t1.activity_type = t2.code join projects as p on t1.project = p.unics_id WHERE t1.geocode_regions_3 = 'NONEU' ORDER BY ec_max_contribution DESC LIMIT 1",[LLM ERROR],False
+Which non-EU entity has recieved the least funding through a project?,"SELECT t1.member_name, p.ec_max_contribution FROM project_members as t1 join activity_types as t2 on t1.activity_type = t2.code join projects as p on t1.project = p.unics_id WHERE t1.geocode_regions_3 = 'NONEU' ORDER BY ec_max_contribution ASC LIMIT 1",[LLM ERROR],False
+Which entity located outside of the EU has received the least funding?,"SELECT t1.member_name, p.ec_max_contribution FROM project_members as t1 join activity_types as t2 on t1.activity_type = t2.code join projects as p on t1.project = p.unics_id WHERE t1.geocode_regions_3 = 'NONEU' ORDER BY ec_max_contribution ASC LIMIT 1",[LLM ERROR],False
+How many non-EU entities have participated in projects?,SELECT count(distinct t1.member_name) FROM project_members as t1 join activity_types as t2 on t1.activity_type = t2.code join projects as p on t1.project = p.unics_id  WHERE t1.geocode_regions_3 = 'NONEU',[LLM ERROR],False
+Which entities that are located outside of the European Union have participated in projects?,SELECT distinct t1.member_name FROM project_members as t1 join activity_types as t2 on t1.activity_type = t2.code join projects as p on t1.project = p.unics_id WHERE t1.geocode_regions_3 = 'NONEU',[LLM ERROR],False
+Show all of the programmes with titles that are related to climate,SELECT p.title from programmes as p WHERE p.title like '%climate%',SELECT DISTINCT T1.title FROM projects AS T1 JOIN project_programmes AS T2 ON T1.unics_id = T2.project WHERE T2.programme LIKE %climate%;,False
+List the programms that have the term climate in the title,SELECT p.title from programmes as p WHERE p.title like '%climate%',[LLM ERROR],False
+Show the title and amount of funds that have been allocated per programme,"SELECT t1.title, sum(t3.ec_max_contribution) from programmes as t1 join project_programmes as t2 on t1.code = t2.programme join projects as t3 on t3.unics_id = t2.project group by t1.title",[LLM ERROR],False
+List all of the titles and the amount of funding that has been dispersed per programme,"SELECT t1.title, sum(t3.ec_max_contribution) from programmes as t1 join project_programmes as t2 on t1.code = t2.programme join projects as t3 on t3.unics_id = t2.project group by t1.title",[LLM ERROR],False

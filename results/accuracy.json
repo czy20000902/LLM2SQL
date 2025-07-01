@@ -1,0 +1,12 @@
+{
+  "chain_10_mistral": 0.04,
+  "langgraph_10_mistral": 0.29,
+  "langgraph_20_mistral": 0.33,
+  "langgraph_30_mistral": 0.4,
+  "simple_10_mistral": 0.3,
+  "simple_20_mistral": 0.37,
+  "simple_30_mistral": 0.44,
+  "simple_40_mistral": 0.47,
+  "simple_50_mistral": 0.31,
+  "simple_100_mistral": 0.28
+}
